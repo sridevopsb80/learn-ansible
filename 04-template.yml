@@ -6,3 +6,8 @@
         src: hello.txt
         dest: /tmp/h1.txt
 
+    - name: Template file
+      ansible.builtin.template:
+        src: hello.txt
+        dest: /tmp/h2.txt
+
