@@ -5,3 +5,4 @@
       ansible.builtin.debug:
         msg: "{{ ansible_hostname }}"
 
+# all facts can refered here https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
