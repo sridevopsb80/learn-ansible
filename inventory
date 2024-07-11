@@ -24,3 +24,4 @@ catalogue2.dev.rdevopsb80.online
 # ansible -i inventory CATALOGUE
 # CATALOGUE matches with = catalogue1.dev.rdevopsb80.online  catalogue2.dev.rdevopsb80.online
 
+# in clouds the instances change quite frequently, hence ansible static inventory does not makes sense and thus we have dynamic inventory.
