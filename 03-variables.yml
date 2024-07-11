@@ -1,7 +1,7 @@
 - name: Demo on Variables
   hosts: localhost
   vars:
-    URL: vars.google.com
+    URL: vars.example.com
   vars_files:
     - sample-vars.yml
   tasks:
