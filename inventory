@@ -9,7 +9,7 @@ frontend2.dev.rdevopsb80.online
 
 [CATALOGUE]
 catalogue1.dev.rdevopsb80.online
-catalogue1.dev.rdevopsb80.online
+catalogue2.dev.rdevopsb80.online
 
 
 # ansible -i inventory <GROUP NAME>
