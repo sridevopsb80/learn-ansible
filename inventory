@@ -1,0 +1,26 @@
+x1
+x2
+172.168.1.2
+172.168.1.3
+
+[FRONTEND]
+frontend1.dev.rdevopsb80.online
+frontend2.dev.rdevopsb80.online
+
+[CATALOGUE]
+catalogue1.dev.rdevopsb80.online
+catalogue1.dev.rdevopsb80.online
+
+
+# ansible -i inventory <GROUP NAME>
+# default group name is all , Here in this file we create two more groups, Which are FRONTEND and CATALOGUE
+
+# ansible -i inventory all
+# all matches with - x1 x2  172.168.1.2 172.168.1.3 frontend1.dev.rdevopsb80.online frontend2.dev.rdevopsb80.online   catalogue1.dev.rdevopsb80.online  catalogue2.dev.rdevopsb80.online
+
+# ansible -i inventory FRONTEND
+# FRONTEND matches with = frontend1.dev.rdevopsb80.online  frontend2.dev.rdevopsb80.online
+
+# ansible -i inventory CATALOGUE
+# CATALOGUE matches with = catalogue1.dev.rdevopsb80.online  catalogue2.dev.rdevopsb80.online
+
