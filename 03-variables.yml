@@ -42,4 +42,4 @@
   tasks:
     - name: Print
       ansible.builtin.debug:
-        msg: "{{ CLASS }} - {{ timings[0] }}"
+        msg: "{{ CLASS }} - {{ timings[0] }}, trainer - {{ trainers[6am] }}"
