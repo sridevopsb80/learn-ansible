@@ -2,5 +2,5 @@
   hosts: localhost
   tasks:
     - debug:
-        msg: "{{ lookup('hashi_vault', 'secret=test/data/MYPASSS token={{ vault_token}} url=https://vault-internal.rdevopsb80.online:8200 validate_certs=False')}}"
+        msg: "{{ lookup('hashi_vault', 'secret=secret/test:MYPASS token={{ vault_token}} url=https://vault-internal.rdevopsb80.online:8200 validate_certs=False')}}"
 
