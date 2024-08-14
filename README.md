@@ -35,3 +35,16 @@ To check version of Ansible that is installed
 ````
 ansible --version
 ````
+
+Create an inventory file 
+
+````
+vim servers
+````
+
+Check connectivity with the Node with Ping module. Ping should return pong.
+
+````
+ansible -i <inventory filename> all -e ansible_user=<username> -e ansible_password=<password> -m ping
+````
+
