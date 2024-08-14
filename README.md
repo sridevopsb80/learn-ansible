@@ -54,3 +54,7 @@ To run a playbook
 ````
 ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_password=<password> frontend.yml
 ````
+To run a playbook with a variable defined in main.yml
+
+````
+ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value>
