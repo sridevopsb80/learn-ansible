@@ -16,6 +16,7 @@ Check pip versions available
 
 ````
 pip3.11 --version
+pip --version
 ````
 
 Install pip3.11
