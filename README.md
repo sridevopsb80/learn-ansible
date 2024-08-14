@@ -28,7 +28,7 @@ sudo dnf install pip3.11
 Install Ansible
 
 ```
-sudo pip-3.11 install ansible
+sudo pip3.11 install ansible
 ```
 
 To check version of Ansible that is installed
@@ -49,3 +49,8 @@ Check connectivity with the Node with Ping module. Ping should return pong.
 ansible -i <inventory filename> all -e ansible_user=<username> -e ansible_password=<password> -m ping
 ````
 
+To run a playbook 
+
+````
+ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_password=<password> frontend.yml
+````
