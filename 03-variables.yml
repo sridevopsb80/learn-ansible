@@ -7,8 +7,8 @@
   tasks:
     - name: Print URL
       ansible.builtin.debug:
-        msg: "URL - {{ URL }}, URL1 - {{  URL1 }}"  # same like shell you care accessing variable with prefix $, here varible will be under {{ }}
-                        # if the value starts with variable, then it requires quotes and we can use any single or double quotes.
+        msg: "URL - {{ URL }}, URL1 - {{  URL1 }}"  # same like shell you are accessing variable with prefix $, here variable will be under {{ }}
+                        # if the value starts with variable [ for ex: {{ URL }} is URL], then it requires quotes and we can use any single or double quotes.
                         # Unlike shell, here in ansible single or double quotes does not have any difference
       vars:
         URL: tasks.example.com
