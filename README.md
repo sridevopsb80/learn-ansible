@@ -47,17 +47,24 @@ Check connectivity with the Node with Ping module. Ping should return pong.
 
 ````
 ansible -i <inventory filename> all -e ansible_user=<username> -e ansible_password=<password> -m ping
+
+ansible -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> -m ping
 ````
 
 To run a playbook 
 
 ````
 ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_password=<password> frontend.yml
+
+ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> frontend.yml
 ````
 To run a playbook with a variable defined in main.yml
 
 ````
 ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value>
+
+ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value>
+
 
 ````
 
