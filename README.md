@@ -61,9 +61,9 @@ ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<p
 To run a playbook with a variable defined in main.yml
 
 ````
-ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value>
+ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value> main.yml
 
-ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value>
+ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value> main.yml
 
 
 ````
