@@ -65,6 +65,6 @@ ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_p
 
 ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> -e <var_name>=<var_value> main.yml
 
-
+#git pull; ansible-playbook -i frontend.dev.sridevops.site, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e role_name=frontend main.yml#
 ````
 
