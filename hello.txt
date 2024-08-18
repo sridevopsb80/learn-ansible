@@ -1,2 +1,4 @@
+#at the time of playbook execution, input for variable name needs to be provided
+
 Hello {{ name }},
 Welcome to DevOps training.
