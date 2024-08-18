@@ -19,7 +19,7 @@
 
 # Variables precedence
 # 1. CLi -e variable : variable is provided while executing the playbook.
-# 2. tasks : while executing the task, the variable is defined in the task itself as it is defined above. this is rare.
+# 2. tasks : while executing a task, the variable is defined in the task itself as it is defined above. this is rare.
 # 3. roles vars : main.yml under vars under roles.
 # 4. vars_files : files such as sample-vars.yml
 # 5. vars : vars in the same file. here it is play.example.com
@@ -37,13 +37,16 @@
     timings: # List
       - 6am
       - 7am
-    trainers: # dict / map
+    trainers: # dict / map - key/value pair
       6am: John
       7am: Peter
   tasks:
     - name: Print
       ansible.builtin.debug:
         msg: "{{ CLASS }} - {{ timings[0] }}, trainer - {{ trainers['6am'] }}"
+        # plain variable is being called as is. Note: class cannot be used as a variable.
+        # while using list variable, we are using 0 to access the first value of the index under timing.
+        # while using a dictionary variable, we are the key to get the corresponding value.
 
 - name: Variable Data types
   hosts: localhost
