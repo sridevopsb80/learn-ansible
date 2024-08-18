@@ -18,12 +18,12 @@
 
 
 # Variables precedence
-# 1. CLi -e variable
-# 2. tasks
-# 3. roles vars
-# 4. vars_files
-# 5. vars
-# n. roles defaults
+# 1. CLi -e variable : variable is provided while executing the playbook.
+# 2. tasks : while executing the task, the variable is defined in the task itself as it is defined above. this is rare.
+# 3. roles vars : main.yml under vars under roles.
+# 4. vars_files : files such as sample-vars.yml
+# 5. vars : vars in the same file. here it is play.example.com
+# n. roles defaults : main.yml under defaults under roles. defaults folder contains lower priority variables.
 
 # Variable types
 # 1. simple variable
