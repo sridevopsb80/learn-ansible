@@ -24,4 +24,8 @@ catalogue2.dev.rdevopsb80.online
 # ansible -i inventory CATALOGUE
 # CATALOGUE matches with = catalogue1.dev.rdevopsb80.online  catalogue2.dev.rdevopsb80.online
 
+# use ansible -i inventory <group name> --list-hosts command to list the hosts
+
 # in clouds the instances change quite frequently, hence ansible static inventory does not makes sense and thus we have dynamic inventory.
+
+

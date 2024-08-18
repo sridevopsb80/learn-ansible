@@ -46,7 +46,7 @@
         msg: "{{ CLASS }} - {{ timings[0] }}, trainer - {{ trainers['6am'] }}"
         # plain variable is being called as is. Note: class cannot be used as a variable.
         # while using list variable, we are using 0 to access the first value of the index under timing.
-        # while using a dictionary variable, we are the key to get the corresponding value.
+        # while using a dictionary variable, we are the key to get the corresponding value. Note that key is defined within quotes.
 
 - name: Variable Data types
   hosts: localhost
