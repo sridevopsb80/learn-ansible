@@ -4,7 +4,7 @@
     - sample-vars.yml
   vars:
     URL: play.example.com
-  tasks:
+  tasks: #while executing the playbook, tasks will run after roles
     - name: Print URL
       ansible.builtin.debug:
         msg: "URL - {{ URL }}, URL1 - {{  URL1 }}"  # same like shell you are accessing variable with prefix $, here variable will be under {{ }}
@@ -12,7 +12,8 @@
                         # Unlike shell, here in ansible single or double quotes does not have any difference
       vars:
         URL: tasks.example.com
-  roles:
+
+  roles: #while executing the playbook, roles will run first
     - sample
 
 
