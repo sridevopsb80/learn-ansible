@@ -1,6 +1,6 @@
 - name: Demo on Variables
   hosts: localhost
-  vars_files:
+  vars_files: #using a file
     - sample-vars.yml
   vars:
     URL: play.example.com
