@@ -68,3 +68,38 @@ ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<p
 #git pull; ansible-playbook -i frontend.dev.sridevops.site, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e role_name=frontend main.yml#
 ````
 
+Ansible vault - to encrypt files and strings. Limited to usage in ansible. 
+
+Commands used:
+````
+ansible-vault --help 
+ansible-vault create
+ansible-vault encrypt
+ansible-vault encrypt_string
+ansible-vault decrypt
+ansible-vault view
+
+````
+Ansible vault - encrypt a file and call it in playbook
+
+````
+ansible-vault encrypt demo.yml
+ansible-playbook demo.yml --ask-vault-password 
+````
+
+Ansible vault - encrypt a string
+
+````
+ansible-vault encrypt_string "Hello world"
+````
+Take the encrypted string and replace it in the file. Refer vault.yml for an example.
+
+Ansible pull - ansible pulls from VCS and executes on target host
+
+````
+ansible-pull -i <host info>, -U <VCS URL> <path of playbook to be executed>
+````
+
+
+
+
