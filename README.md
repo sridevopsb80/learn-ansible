@@ -43,7 +43,7 @@ Create an inventory file
 vim servers
 ````
 
-Check connectivity with the Node with Ping module. Ping should return pong.
+Check connectivity with the Node with Ping module (module denoted by -m). Ping should return pong. In case of small number of nodes, we can either go with an inventory file or specify the node IPs individually. When we list the individual IPs, IPs need to be separated using a comma. 
 
 ````
 ansible -i <inventory filename> all -e ansible_user=<username> -e ansible_password=<password> -m ping
