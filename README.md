@@ -58,6 +58,9 @@ ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_p
 
 ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> frontend.yml
 ````
+If certain commands in the playbook requires root privilege, use ansible privilege escalation: become to provide privileges.
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_privilege_escalation.html
+
 To run a playbook with a variable defined in main.yml
 
 ````
