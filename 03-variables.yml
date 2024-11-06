@@ -74,7 +74,7 @@
     - ansible.builtin.shell: uptime
       register: out
 
-      #https://thelinuxcode.com/ansible_register_module/
+      #https://thelinuxcode.com/ansible_register_module/. The register module allows you to capture or "register" the output of any Ansible task and save it to a variable.
 
     - ansible.builtin.debug:
         msg: "{{ out }}"

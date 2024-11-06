@@ -3,9 +3,9 @@
   tasks:
     - shell: id roboshop
       register: out
-      ignore_errors: yes #ansible stops playbook execution when it encounters an error. to make it ignore errors, use this option.
+      ignore_errors: yes #ansible stops playbook execution when it encounters an error. to make it ignore errors, use this option. yes/no is boolean.
 
-    #https://thelinuxcode.com/ansible_register_module/
+    #https://thelinuxcode.com/ansible_register_module/. The register module allows you to capture or "register" the output of any Ansible task and save it to a variable.
 
     - debug:
         msg: User details - {{ out.stdout }}

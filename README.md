@@ -77,8 +77,8 @@ Commands used:
 ````
 ansible-vault --help 
 ansible-vault create
-ansible-vault encrypt
-ansible-vault encrypt_string
+ansible-vault encrypt - to encrypt a file
+ansible-vault encrypt_string - to encrypt a string only
 ansible-vault decrypt
 ansible-vault view
 
@@ -103,6 +103,11 @@ Ansible pull - ansible pulls from VCS and executes on target host
 ansible-pull -i <host info>, -U <VCS URL> <path of playbook to be executed>
 ````
 
+Manage parallelism - ansible connects to 5 remote hosts by default. To specify value:
+
+````
+ansible -f FORKS
+````
 
 
 
