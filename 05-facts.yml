@@ -5,4 +5,6 @@
       ansible.builtin.debug:
         msg: "{{ ansible_hostname }}"
 
-# all facts can refered here https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
+# all facts can be referred here https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
+
+# running with ansible-playbook 05-facts.yml, you should get the hostname of the remote host
