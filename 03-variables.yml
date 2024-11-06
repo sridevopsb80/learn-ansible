@@ -13,6 +13,8 @@
       vars:
         URL: tasks.example.com
 
+#https://thelinuxcode.com/ansible_debug_module/ - debug module
+
   roles: #while executing the playbook, roles will run first
     - sample
 
@@ -63,12 +65,16 @@
     - name: Print
       ansible.builtin.debug:
         msg: ""
+
 #terraform only supports true/false, not yes/no. shell only supports strings.
-- name: Retrive the output from previous tasks and store in variable
+
+- name: Retrieve the output from previous tasks and store in variable
   hosts: localhost
   tasks:
     - ansible.builtin.shell: uptime
       register: out
+
+      #https://thelinuxcode.com/ansible_register_module/
 
     - ansible.builtin.debug:
         msg: "{{ out }}"

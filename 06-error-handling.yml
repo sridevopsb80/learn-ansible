@@ -5,6 +5,8 @@
       register: out
       ignore_errors: yes #ansible stops playbook execution when it encounters an error. to make it ignore errors, use this option.
 
+    #https://thelinuxcode.com/ansible_register_module/
+
     - debug:
         msg: User details - {{ out.stdout }}
 
