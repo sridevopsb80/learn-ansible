@@ -23,7 +23,7 @@
 # 3. roles vars : main.yml under vars under roles.
 # 4. vars_files : files such as sample-vars.yml
 # 5. vars : vars in the same file. here it is play.example.com
-# n. roles defaults : main.yml under defaults under roles. defaults folder contains lower priority variables.
+# n. roles defaults : main.yml under defaults under roles. defaults folder contains low(est) priority variables.
 
 # Variable types
 # 1. simple variable
@@ -35,11 +35,11 @@
   vars:
     CLASS: devops # plain variable
     timings: # List
-      - 6am
-      - 7am
+      - 6am #index value is 0
+      - 7am #index value is 1
     trainers: # dict / map - key/value pair
-      6am: John
-      7am: Peter
+      6am: John #index value is 6am
+      7am: Peter #index value is 7am
   tasks:
     - name: Print
       ansible.builtin.debug:
@@ -63,7 +63,7 @@
     - name: Print
       ansible.builtin.debug:
         msg: ""
-
+#terraform only supports true/false, not yes/no. shell only supports strings.
 - name: Retrive the output from previous tasks and store in variable
   hosts: localhost
   tasks:
