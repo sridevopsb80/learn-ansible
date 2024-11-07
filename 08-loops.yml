@@ -3,7 +3,7 @@
   tasks:
     - name: Print
       ansible.builtin.debug:
-        msg: "Fruit - {{ item}}"
+        msg: "Fruit - {{ item}}" #item is a var that can be used for loop
       loop:
         - apple
         - banana
@@ -12,7 +12,7 @@
     - name: Print with quantity
       ansible.builtin.debug:
         msg: "Fruit - {{ item['name'] }}, Quantity - {{ item.quantity }}"
-        #two different ways to call
+        #two different ways to call. item.quantity or item['quantity']
       loop:
         - { name: apple, quantity: 100}
         - { name: banana, quantity: 200}

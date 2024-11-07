@@ -101,6 +101,8 @@ Ansible pull - ansible pulls from VCS and executes on target host
 
 ````
 ansible-pull -i <host info>, -U <VCS URL> <path of playbook to be executed>
+
+ansible-pull -i localhost, -U https://github.com/sridevopsb80/roboshop_ansible.git main.yml -e env=dev -e role_name=frontend
 ````
 
 Manage parallelism - ansible connects to 5 remote hosts by default. To specify value:
