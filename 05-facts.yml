@@ -5,8 +5,9 @@
       ansible.builtin.debug:
         msg: "{{ ansible_hostname }}"
 
+#Ansible collects the information from the remote node and stores it in a variable called facts.
+
 # all facts can be referred here https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_vars_facts.html
 
 # running with ansible-playbook 05-facts.yml, you should get the hostname of the remote host
 
-#Ansible collects the information from the remote node and stores it in a variable called factsAnsible collects the information from the remote node and stores it in a variable called facts

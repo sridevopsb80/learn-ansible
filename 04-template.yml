@@ -1,4 +1,5 @@
-#When files get copied, the variables defined in the file will get copied as is. If we want to pass a variable value while copying the file, use template module. This will replace the variables in the file with the value of the variable that is being passed. Here, the source file is hello.txt which has a variable name. ansible-playbook 04-template.yml -e name=<name> will have no effect for copy module, whereas the variable name will be filled with the provided variable value for template module.
+#When files get copied using copy module, the variables defined in the file will get copied as is. If we want to pass a variable value while copying the file, use template module. This will replace the variables in the file with the value of the variable that is being passed. Here, the source file is hello.txt which has a variable name. ansible-playbook 04-template.yml -e name=<name> will have no effect for copy module, whereas the variable name will be filled in with the provided variable value for template module.
+
 
 - name: Demo on template
   hosts: localhost

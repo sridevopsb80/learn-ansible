@@ -13,7 +13,7 @@
       vars:
         URL: tasks.example.com
 
-#https://thelinuxcode.com/ansible_debug_module/ - debug module
+#https://thelinuxcode.com/ansible_debug_module/ - debug module. The Ansible debug module prints statements during playbook execution for troubleshooting purposes.
 
   roles: #while executing the playbook, roles will run first
     - sample
@@ -22,10 +22,10 @@
 # Variables precedence
 # 1. CLi -e variable : variable is provided while executing the playbook.
 # 2. tasks : while executing a task, the variable is defined in the task itself as it is defined above. this is rare.
-# 3. roles vars : main.yml under vars under roles.
+# 3. roles vars : main.yml under vars under roles. roles folder->vars folder->main.yml
 # 4. vars_files : files such as sample-vars.yml
 # 5. vars : vars in the same file. here it is play.example.com
-# n. roles defaults : main.yml under defaults under roles. defaults folder contains low(est) priority variables.
+# n. roles defaults : main.yml under defaults under roles. defaults folder contains low(est) priority variables. roles folder->defaults folder->main.yml
 
 # Variable types
 # 1. simple variable
@@ -48,7 +48,7 @@
         msg: "{{ CLASS }} - {{ timings[0] }}, trainer - {{ trainers['6am'] }}"
         # plain variable is being called as is. Note: class cannot be used as a variable.
         # while using list variable, we are using 0 to access the first value of the index under timing.
-        # while using a dictionary variable, we are the key to get the corresponding value. Note that key is defined within quotes.
+        # while using a dictionary variable, we are using the key to get the corresponding value. Note that key is defined within quotes.
 
 - name: Variable Data types
   hosts: localhost
