@@ -63,7 +63,7 @@ ansible-playbook -i <inventory filename> -e ansible_user=<username> -e ansible_p
 ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<password> frontend.yml
 ````
 If certain commands in the playbook requires root privilege, use ansible privilege escalation: become to provide privileges.
-https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_privilege_escalation.html
+Documentation: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_privilege_escalation.html
 
 To run a playbook with a variable defined in main.yml
 
@@ -120,10 +120,39 @@ ansible -f FORKS
 ````
 ## Ansible conditionals
 
-Ansible conditionals - Refer when conditionals in roboshop-ansible ->common -> tasks -> golang.yml, java.yml, python.yml, schema.yml. Used in place of if, if-else and elif conditionals from the shell script.  
+Ansible conditionals - Refer when conditionals in roboshop-ansible ->common -> tasks -> golang.yml, java.yml, python.yml, schema.yml. Used in place of if, if-else and elif conditionals from the shell script.
+Documentation: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html
 ````
-https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html
+- name: Load Schema
+  ansible.builtin.include_role: 
+    name: common
+    tasks_from: schema
+  when: schema_setup is defined 
+  #conditional used to load schema only when schema_setup is defined in a component
 ````
+## Grouping tasks in Ansible using blocks
+
+Documentation: https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_blocks.html#grouping-tasks-with-blocks
+https://linuxhandbook.com/ansible-blocks/
+
+Block is used to group tasks. The below block is preceded by a conditional. The block is executed when the condition is met. Here, the variable value of schema_setup needs to be mysql.
+````
+- name: Load MySQL schema
+  when: schema_setup == "mysql"
+  block:
+    - name: Install mysql Client
+      ansible.builtin.dnf:
+        name: mysql
+        state: latest
+
+    - name: Load Master Data
+      ansible.builtin.shell: mysql -h mysql.{{ env }}.sridevops.site -uroot -pRoboShop@1 < /app/db/{{ item }}.sql
+      loop: "{{schema_files}}"
+````
+## Ansible loops
+
+Similar to using for loop in shell, in the above example, we are using loop in ansible. The value for loop will be obtained from the variable schema_files. 'Item' variable comes with loop and is used instead of file var in shell.
+
 ## Ansible include role vs Role dependencies 
 
 Ansible include role is being used to load a task from another role. In the below example, we are loading app-prereq.yml from common->tasks->app-prereq.yml. When running a role, we are including another role.
@@ -133,8 +162,17 @@ ansible.builtin.include_role:
   tasks_from: app-prereq
 ````
 Ansible role dependency is used to load main.yml from common->tasks->main.yml. Role dependencies are used to load other roles as prerequisites while running a role. The prerequisite role will run before the role that is calling it. Role dependency is defined in the meta folder of the role that is calling the prerequisite role. It always calls the main.yml file in the role that is being called.
-In the below example, redis is using common as a role dependency to run the set-prompt command, provided that the component and env variables are defined. 
+In the below example (roboshop_ansible->redis->meta->main.yml), redis is using common as a role dependency to run the set-prompt command prior to execution of redis role. 
+
+roboshop_ansible->redis->meta->main.yml
 ````
 dependencies:
   - role: common
 ````
+roboshop_ansible->common->main.yml
+````
+- name: Set Prompt
+  ansible.builtin.shell: set-prompt {{component}}-{{env}}
+````
+
+
