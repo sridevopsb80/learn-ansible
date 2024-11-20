@@ -1,5 +1,7 @@
 # learn-ansible
 
+## Python and ansible installation 
+
 Check if python is installed
 
 ````
@@ -37,6 +39,8 @@ To check version of Ansible that is installed
 ansible --version
 ````
 
+## Create an inventory file, check connectivity, privilege escalation and how to run a playbook
+
 Create an inventory file 
 
 ````
@@ -70,6 +74,7 @@ ansible-playbook -i <node IP>, -e ansible_user=<username> -e ansible_password=<p
 
 #git pull; ansible-playbook -i frontend.dev.sridevops.site, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e role_name=frontend main.yml#
 ````
+## Ansible vault
 
 Ansible vault - to encrypt files and strings. Limited to usage in ansible. 
 
@@ -97,6 +102,8 @@ ansible-vault encrypt_string "Hello world"
 ````
 Take the encrypted string and replace it in the file. Refer vault.yml for an example.
 
+## Ansible pull
+
 Ansible pull - ansible pulls from VCS and executes on target host
 
 ````
@@ -104,15 +111,30 @@ ansible-pull -i <host info>, -U <VCS URL> <path of playbook to be executed>
 
 ansible-pull -i localhost, -U https://github.com/sridevopsb80/roboshop_ansible.git main.yml -e env=dev -e role_name=frontend
 ````
+## Manage parallelism
 
 Manage parallelism - ansible connects to 5 remote hosts by default. To specify value:
 
 ````
 ansible -f FORKS
 ````
+## Ansible conditionals
+
 Ansible conditionals - Refer when conditionals in roboshop-ansible ->common -> tasks -> golang.yml, java.yml, python.yml, schema.yml. Used in place of if, if-else and elif conditionals from the shell script.  
 ````
 https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html
 ````
+## Ansible include role vs Role dependencies 
 
-
+Ansible include role is being used to load a task from another role. In the below example, we are loading app-prereq.yml from common->tasks->app-prereq.yml. When running a role, we are including another role.
+````
+ansible.builtin.include_role:
+  name: common
+  tasks_from: app-prereq
+````
+Ansible role dependency is used to load main.yml from common->tasks->main.yml. Role dependencies are used to load other roles as prerequisites while running a role. The prerequisite role will run before the role that is calling it. Role dependency is defined in the meta folder of the role that is calling the prerequisite role. It always calls the main.yml file in the role that is being called.
+In the below example, redis is using common as a role dependency to run the set-prompt command, provided that the component and env variables are defined. 
+````
+dependencies:
+  - role: common
+````
