@@ -110,6 +110,9 @@ Manage parallelism - ansible connects to 5 remote hosts by default. To specify v
 ````
 ansible -f FORKS
 ````
-
+Ansible conditionals - Refer when conditionals in roboshop-ansible ->common -> tasks -> golang.yml, java.yml, python.yml, schema.yml. Used in place of if, if-else and elif conditionals from the shell script.  
+````
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_conditionals.html
+````
 
 
