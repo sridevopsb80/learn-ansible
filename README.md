@@ -86,7 +86,6 @@ ansible-vault encrypt - to encrypt a file
 ansible-vault encrypt_string - to encrypt a string only
 ansible-vault decrypt
 ansible-vault view
-
 ````
 Ansible vault - encrypt a file and call it in playbook
 
