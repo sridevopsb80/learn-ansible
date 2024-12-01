@@ -173,5 +173,14 @@ roboshop_ansible->common->main.yml
 - name: Set Prompt
   ansible.builtin.shell: set-prompt {{component}}-{{env}}
 ````
+## Hashicorp vault
 
+````
+    msg: "{{ lookup('hashi_vault', 'secret=kv/data/test:MYPASS token={{vault_token}} url=https://vault-internal.sridevops.site:8200 validate_certs=false')}}"
+````
+In order to use hashi_vault lookup module, install hvac.
+
+````
+sudo pip3.11 install hvac
+````
 
