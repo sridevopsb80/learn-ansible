@@ -1,6 +1,6 @@
-- name: retrive secrets
+- name: retrieve secrets
   hosts: localhost
   tasks:
     - debug:
-        msg: "{{ lookup('hashi_vault', 'secret=kv/data/test:MYPASS token={{vault_token}} url=https://vault-internal.rdevopsb80.online:8200 validate_certs=false')}}"
+        msg: "{{ lookup('hashi_vault', 'secret=kv/data/test:MYPASS token={{vault_token}} url=https://vault-internal.sridevops.site:8200 validate_certs=false')}}"
 
