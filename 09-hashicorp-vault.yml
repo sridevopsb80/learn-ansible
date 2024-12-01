@@ -1,6 +1,12 @@
+#https://docs.ansible.com/ansible/2.9/plugins/lookup/hashi_vault.html
+
 - name: retrieve secrets
   hosts: localhost
   tasks:
     - debug:
         msg: "{{ lookup('hashi_vault', 'secret=kv/data/test:MYPASS token={{vault_token}} url=https://vault-internal.sridevops.site:8200 validate_certs=false')}}"
+
+        #kv - key/value engine in vault
+        #test - secret
+        #MYPASS - key
 
