@@ -10,3 +10,4 @@
         #test - secret
         #MYPASS - key
 
+# use ansible-playbook 09-hashicorp-vault.yml -e vault_token=<token value> to execute
