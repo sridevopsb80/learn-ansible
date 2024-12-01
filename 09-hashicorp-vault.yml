@@ -1,4 +1,5 @@
 #https://docs.ansible.com/ansible/2.9/plugins/lookup/hashi_vault.html
+# vault_token will be passed in cli during execution
 
 - name: retrieve secrets
   hosts: localhost
