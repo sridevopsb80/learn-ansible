@@ -12,4 +12,5 @@
         #MYPASS - key
 
 # use ansible-playbook 09-hashicorp-vault.yml -e vault_token=<token value> to execute
-#above lookup command is modified and used in roboshop_ansible repo as well
+# above lookup command is modified and used in roboshop_ansible repo as well
+# after lookup, secrets are exported as env variables. notice that we are only replacing env variables across the repos
